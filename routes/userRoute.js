@@ -29,7 +29,7 @@ router.post("/signup", async (req, res) => {
     const token = jwt.sign({ email }, process.env.SECRET, { expiresIn: '24h' });
 
     res.cookie("token", token, {
-      secure: process.env.NODE_ENV === "production", 
+      secure: true, 
       httpOnly: true, // Set to true for better security
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000,
@@ -58,7 +58,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ email }, process.env.SECRET, { expiresIn: "24h" });
 
     res.cookie("token", token, {
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       httpOnly: true,
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
       maxAge: 24 * 60 * 60 * 1000,
