@@ -20,6 +20,9 @@ app.use(cors({
     credentials:true
 }))
 
+// Trust proxy
+app.set('trust proxy', 1); // Trust first proxy
+
 mongoose.connect(process.env.CONNECTION_URI).then(()=>{
     console.log("mongodb connected")
 })
