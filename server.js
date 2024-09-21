@@ -27,6 +27,7 @@ mongoose.connect(process.env.CONNECTION_URI).then(()=>{
 
 app.get('/',(req,res)=>{
     // res.cookie("name","vikash")
+    const manual='products- /api/products  ||   singleproduct- /api/product/:id || deleteproduct- method-delete| /api/product/delete/:prodid || toadd a review:- method-patch api/product/review/:prodid body-{rating,description,images,userInfo}  || getcart- /api/cart/:userId'
     res.send('server is working')
 })
 
